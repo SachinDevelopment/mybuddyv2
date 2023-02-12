@@ -59,7 +59,7 @@ class AustinmBot:
         bag = pyautogui.locateOnScreen('bag.png', confidence=.95)
         if bag is None:
             print('no bag')
-            pyautogui.moveTo(pyautogui.center(pyautogui.locateOnScreen('bag.png', confidence=0.8)), duration=0)
+            pyautogui.moveTo(pyautogui.center(pyautogui.locateOnScreen('bag.png', confidence=0.5)), duration=0)
             pyautogui.click()
             sleep(1)
 
