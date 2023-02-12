@@ -53,27 +53,32 @@ class AustinmBot:
         self.timestamp = time()
 
     def click_next_target(self):
+        sleep(1)
         targets = self.targets_ordered_by_distance(self.targets)
+        
         bag = pyautogui.locateOnScreen('bag.png', confidence=.95)
         if bag is None:
-             pyautogui.moveTo(pyautogui.center(pyautogui.locateOnScreen('bag.png', confidence=0.8)), duration=0)
-             pyautogui.click()
-             sleep(1)
+            print('no bag')
+            pyautogui.moveTo(pyautogui.center(pyautogui.locateOnScreen('bag.png', confidence=0.8)), duration=0)
+            pyautogui.click()
+            sleep(1)
 
         fullinv = pyautogui.locateOnScreen('fullinv.png', confidence=.8)
         if(fullinv):
+            print('full inv')
             for log in pyautogui.locateAllOnScreen('log.png', confidence=0.8):
                 center = pyautogui.center(log)
                 pyautogui.moveTo(center, duration=0)
                 pyautogui.click()
         else:
-            if len(targets) > 0 and pyautogui.locateOnScreen('woodcutting.png', confidence=.5) == None:
+            if len(targets) > 0 and pyautogui.locateOnScreen('woodcuttingv2.png', confidence=.5) == None:
                 target_pos = targets[0]
                 screen_x, screen_y = self.get_screen_position(target_pos)
                 pyautogui.moveTo(x=screen_x, y=screen_y)
                 pyautogui.click()
-                sleep(2)
-
+                sleep(3)
+            else:
+                 print('didnt click - either no targets or already cutting')
 
     def targets_ordered_by_distance(self, targets):
         # our character is always in the center of the screen

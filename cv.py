@@ -52,7 +52,7 @@ while(True):
         # display the images
         cv.imshow('Tismoclient', detection_image)
         # debug the loop rate
-        print('FPS {}'.format(1 / (time() - loop_time)))
+        # print('FPS {}'.format(1 / (time() - loop_time)))
         loop_time = time()
     # press 'q' with the output window focused to exit.
     # waits 1 ms every loop to process key presses
