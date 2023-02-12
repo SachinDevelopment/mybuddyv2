@@ -12,6 +12,7 @@ class Detection:
     screenshot = None
     vision_tree = None
     processed_img = None
+    ## FF1300FF
     hsv_filter = HsvFilter(110, 178, 53, 135, 226, 255, 0, 32, 120, 165)
 
     def __init__(self, vision_tree):

@@ -34,7 +34,6 @@ class Vision:
         # Get the all the positions from the match result that exceed our threshold
         locations = np.where(result >= threshold)
         locations = list(zip(*locations[::-1]))
-        #print(locations)
 
         # if we found no results, return now. this reshape of the empty array allows us to 
         # concatenate together results without causing an error

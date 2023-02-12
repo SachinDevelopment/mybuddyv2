@@ -22,6 +22,7 @@ bot = AustinmBot((wincap.offset_x, wincap.offset_y), (wincap.w, wincap.h))
 wincap.start()
 detector.start()
 bot.start()
+loop_time = time()
 while(True):
 
     # if we don't have a screenshot yet, don't run the code below this point yet
@@ -50,7 +51,9 @@ while(True):
         detection_image = vision.draw_rectangles( wincap.screenshot, detector.rectangles)
         # display the images
         cv.imshow('Tismoclient', detection_image)
-
+        # debug the loop rate
+        print('FPS {}'.format(1 / (time() - loop_time)))
+        loop_time = time()
     # press 'q' with the output window focused to exit.
     # waits 1 ms every loop to process key presses
     key = cv.waitKey(1)

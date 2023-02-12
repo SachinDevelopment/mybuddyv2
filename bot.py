@@ -54,6 +54,12 @@ class AustinmBot:
 
     def click_next_target(self):
         targets = self.targets_ordered_by_distance(self.targets)
+        bag = pyautogui.locateOnScreen('bag.png', confidence=.95)
+        if bag is None:
+             pyautogui.moveTo(pyautogui.center(pyautogui.locateOnScreen('bag.png', confidence=0.8)), duration=0)
+             pyautogui.click()
+             sleep(1)
+
         fullinv = pyautogui.locateOnScreen('fullinv.png', confidence=.8)
         if(fullinv):
             for log in pyautogui.locateAllOnScreen('log.png', confidence=0.8):
